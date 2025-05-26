@@ -1,123 +1,118 @@
 
 
-#  Emoji Prediction using Natural Language Processing
+##  Emoji Prediction using DistilBERT
 
-This project focuses on predicting the most appropriate emoji based on the sentiment and context of a given input sentence. The aim is to simulate how humans associate emotions (emojis) with textual expressions. This model enhances interactive applications like social media assistants, chatbots, and smart input systems.
-
----
-
-## 📌 Project Objectives
-
-* To predict the correct emoji from a sentence input.
-* To preprocess and prepare textual data for deep learning models.
-* To implement a transformer-based model (DistilBERT) for classification.
-* To fine-tune and evaluate performance on a custom emoji dataset.
-* To provide a user-friendly interface for interactive prediction.
+This project uses **DistilBERT**, a lightweight transformer model, to predict relevant emojis based on the sentiment and context of a given sentence. The model is trained to understand emotional context from text and generate an appropriate emoji response.
 
 ---
 
-## 📚 Dataset
+###  Repository Structure
 
-* **Source**: [Kaggle - Twitter Emoji Prediction](https://www.kaggle.com/datasets/hariharasudhanas/twitter-emoji-prediction)
-* **Format**: CSV file containing `text` and `label` columns.
-* The dataset includes sentences or tweets and the corresponding emoji labels.
-
----
-
-## 🔍 Technologies & Libraries Used
-
-* **Python**
-* **Google Colab** for model development
-* **Transformers** (`DistilBERT`) from Hugging Face
-* **Scikit-learn**
-* **Pandas**, **NumPy**
-* **Matplotlib** (for optional visualizations)
-* **Torch**
+```
+├── emoji_prediction_cleaned.ipynb      # Jupyter notebook with model training and prediction
+├── Emoji_Prediction_Abstract.pdf       # Abstract of the project
+├── Detail_View_of_Algorithm_and_Dataset.pdf  # Detailed explanation of the algorithm and dataset used
+├── output.jpg                          # Sample output image
+├── README.md                           # Project documentation (you are here)
+```
 
 ---
 
-## ⚙️ Model Architecture
+###  Problem Statement
 
-* **Model Used**: `DistilBERTForSequenceClassification`
-* **Tokenizer**: `DistilBertTokenizerFast`
-* Fine-tuned on the emoji prediction dataset.
-* Input: Tokenized text
-* Output: Predicted emoji label
+Given a sentence or a short text message, the model should predict a suitable emoji that represents the emotion or context of that sentence.
 
----
+Example:
 
-## 📂 Files in This Repository
-
-| File Name                                  | Description                                        |
-| ------------------------------------------ | -------------------------------------------------- |
-| `emoji_prediction_cleaned.ipynb`           | Final cleaned version of the Google Colab notebook |
-| `Emoji_Prediction_Abstract.pdf`            | Abstract summarizing the objective and approach    |
-| `Detail_View_of_Algorithm_and_Dataset.pdf` | Detailed explanation of methodology and dataset    |
-| `output.jpg`                               | Sample prediction output screenshot                |
-| `README.md`                                | Project overview and instructions                  |
+```
+Input: "I am so happy today!"
+Predicted Emoji: 😊
+```
 
 ---
 
-## 🚀 How to Run
+###  Model Used
 
-1. Clone the repository:
+* **Model Architecture**: [DistilBERT](https://huggingface.co/distilbert-base-uncased)
+
+  * A smaller, faster version of BERT optimized for classification.
+* **Classification Layer**: A dense layer on top of DistilBERT with softmax activation.
+* **Loss Function**: Categorical Crossentropy
+* **Optimizer**: AdamW
+
+---
+
+###  Dataset Details
+
+* **Type**: Text-to-Emoji classification dataset (custom dataset created manually)
+* **Format**: CSV files with sentence and corresponding emoji label
+* **Labels**: Emojis are mapped to integers (e.g., 😊: 0, 😢: 1, 😠: 2, etc.)
+
+---
+
+###  How to Run
+
+1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/emoji-prediction-nlp.git
-   cd emoji-prediction-nlp
+   git clone https://github.com/Hars99/emoji_prediction_using_DistilBERT_.git
+   cd emoji_prediction_using_DistilBERT_
    ```
 
-2. Open the notebook in **Google Colab** or **Jupyter**.
+2. **Install dependencies:**
 
-3. Upload the dataset or mount Google Drive if necessary.
-
-4. Run all cells to:
-
-   * Preprocess data
-   * Train/fine-tune model
-   * Predict emoji for new inputs
-
-5. To test interactively, enter a sentence when prompted:
-
-   ```
-   Enter a sentence (or type 'exit' to quit): I am so Happy today!
-   Predicted Emoji: 😊
+   ```bash
+   pip install -r requirements.txt
    ```
 
----
+   Or manually install:
 
-## 🖼️ Sample Output
+   ```bash
+   pip install transformers torch pandas scikit-learn
+   ```
 
-> **User Input**: `"I am so Happy today!"`
-> **Predicted Emoji**: 😊
-
-📸 See `output.jpg` for the actual terminal display.
-
----
-
-## ✅ Features
-
-* Transformer-based architecture for contextual understanding
-* Emoji prediction from real-world user inputs
-* Clean and simple output interface
-* Easily extendable to more emojis or languages
+3. **Run the notebook:**
+   Open `emoji_prediction_cleaned.ipynb` and run all the cells.
 
 ---
 
-## 📌 Future Enhancements
+###  Sample Output
 
-* Support multi-label emoji prediction (more than one emoji per sentence)
-* Integrate emoji suggestions into messaging interfaces
-* Improve generalization with larger and more diverse datasets
-* Add support for regional or language-specific emojis
+<img src="output.jpg" width="500"/>
 
 ---
 
-##  Author
+### Results
+
+| Metric         | Value   |
+| -------------- | ------- |
+| Accuracy       | \~90%   |
+| Loss           | \~0.20  |
+| Model Size     | \~65MB  |
+| Inference Time | \~200ms |
+
+---
+
+### ⚠Limitations
+
+* Dataset is limited in size and emoji types.
+* Model may not generalize well for sarcastic or ambiguous sentences.
+* Works best for simple emotional sentences.
+
+---
+
+### Future Work
+
+* Integrate emoji prediction with a real-time messaging app.
+* Expand dataset with emojis for sarcasm, slang, and regional phrases.
+* Use **multi-label classification** for predicting multiple emojis per sentence.
+
+---
+
+###  Author
 
 **Harshith Manikhanta**
-B.Tech AI & ML Student
+B.Tech in AI & ML
 VIT-AP University
 
----
 
