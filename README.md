@@ -9,11 +9,14 @@ This project uses **DistilBERT**, a lightweight transformer model, to predict re
 ###  Repository Structure
 
 ```
-├── emoji_prediction_.ipynb      # colab notebook with model training and prediction. full code structure
-├── Emoji_Prediction_Abstract.pdf       # Abstract of the project
-├── Detail_View_of_Algorithm_and_Dataset.pdf  # Detailed explanation of the algorithm and dataset used
-├── output.jpg                          # Sample output image
-├── README.md                           # Project documentation
+emoji_prediction_using_DistilBERT_/
+│
+├── emoji_prediction.ipynb          # Main notebook
+├── README.md                       # Full project overview
+├── requirements.txt                # Python dependencies
+├── .gitignore                      # Ignore unnecessary files
+├── sample_output.png               # Screenshot of output (optional)
+                          
 ```
 
 ---
