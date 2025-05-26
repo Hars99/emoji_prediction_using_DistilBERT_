@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Colab temporary files
+*.csv
+*.xlsx
+*.tsv
+*.h5
+*.pkl
+*.pt
+*.model
+*.log
+
+# Hugging Face cache
+.cache/
